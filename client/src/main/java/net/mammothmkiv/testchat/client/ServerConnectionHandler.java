@@ -29,6 +29,7 @@ public class ServerConnectionHandler {
             connectionInfo.isConnected = true;
             outputStream = new ObjectOutputStream(connectionInfo.connection.getOutputStream());
             dataReceiver = new ServerDataReceiver(connectionInfo, packetBus);
+            dataReceiver.setDaemon(true);
             dataReceiver.start();
         }
     }
