@@ -1,0 +1,27 @@
+group 'net.mammothmkiv.testChat'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'net.mammothmkiv.testchat.client.ChatClient'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'com.google.guava', name: 'guava', version: '18.0'
+    compile project(':common')
+    compile 'com.intellij:forms_rt:7.0.3'
+}
