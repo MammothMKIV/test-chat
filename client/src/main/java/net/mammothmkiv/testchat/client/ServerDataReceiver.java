@@ -28,11 +28,6 @@ public class ServerDataReceiver extends Thread {
         } catch (Exception e) {
             connectionInfo.isConnected = false;
             connectionInfo.isSignedIn = false;
-        } finally {
-            try {
-                connectionInfo.connection.close();
-                connectionInfo.connection = null;
-            } catch (Exception e) {}
         }
     }
 }

@@ -2,6 +2,7 @@ package net.mammothmkiv.testchat.server;
 
 import net.mammothmkiv.testchat.common.*;
 import net.mammothmkiv.testchat.server.authenticators.IAuthenticator;
+import net.mammothmkiv.testchat.server.exceptions.ConcurrentConnectionException;
 import net.mammothmkiv.testchat.server.exceptions.IncorrectPacketSequenceException;
 import net.mammothmkiv.testchat.common.UserAuthenticationException;
 
@@ -48,7 +49,14 @@ public class ServerClientHandler extends Thread {
             this.connection.signedIn = true;
             this.connection.id = ((LoginRequestPacket)loginRequest).nickname;
 
-            ActiveUserRegistry.getInstance().register(this.connection);
+            try {
+                ActiveUserRegistry.getInstance().register(this.connection);
+            } catch (ConcurrentConnectionException e) {
+                os.writeObject(new LoginResponsePacket("User already connected"));
+                client.close();
+                throw e;
+            }
+
             os.writeObject(new LoginResponsePacket(new UserDescriptor(this.connection.id, ((LoginRequestPacket)loginRequest).nickname), LoginResult.LOGIN_RESULT_SUCCESS, "Welcome"));
 
             client.setSoTimeout(0);
