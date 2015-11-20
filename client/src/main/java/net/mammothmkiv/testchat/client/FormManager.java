@@ -1,8 +1,5 @@
 package net.mammothmkiv.testchat.client;
 
-import com.google.common.eventbus.Subscribe;
-import net.mammothmkiv.testchat.client.events.LoginSuccessEvent;
-
 import javax.swing.*;
 
 /**

@@ -63,8 +63,6 @@ public class ServerClientHandler extends Thread {
                 ActiveUserRegistry.getInstance().unregister(this.connection.id);
 
             }
-
-//            fs.close();
         } catch (Exception e) {
             System.out.println(e.toString());
         }

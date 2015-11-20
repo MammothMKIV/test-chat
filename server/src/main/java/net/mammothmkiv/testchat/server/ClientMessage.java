@@ -1,7 +1,6 @@
 package net.mammothmkiv.testchat.server;
 
 import net.mammothmkiv.testchat.common.UserDescriptor;
-import net.mammothmkiv.testchat.server.ServerClientHandler;
 
 /**
  * Created by n.rogovoy on 11/12/2015.

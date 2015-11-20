@@ -37,7 +37,7 @@ public class ServerConnectionListener extends Thread {
                 System.out.println("Client connected");
             }
         } catch (IOException e) {
-            //System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 

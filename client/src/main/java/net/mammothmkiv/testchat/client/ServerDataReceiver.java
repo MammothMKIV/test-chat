@@ -1,7 +1,6 @@
 package net.mammothmkiv.testchat.client;
 
 import com.google.common.eventbus.EventBus;
-import net.mammothmkiv.testchat.common.LoginResponsePacket;
 
 import java.io.ObjectInputStream;
 
