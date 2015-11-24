@@ -46,7 +46,7 @@ public class ChatCore {
     public void login(AuthenticationCredentials credentials) throws UserAuthenticationException {
         try {
             connectionHandler.connect();
-            connectionHandler.send(new LoginRequestPacket(credentials.nickname));
+            connectionHandler.send(new LoginRequestPacket(credentials.getNickname()));
         } catch (Exception e) {
             throw new UserAuthenticationException("Failed to establish connection with server.");
         }

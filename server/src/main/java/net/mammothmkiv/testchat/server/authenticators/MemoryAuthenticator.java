@@ -15,6 +15,6 @@ public class MemoryAuthenticator implements IAuthenticator {
             add("admin");
         }};
 
-        return allowedNicknames.contains(credentials.nickname);
+        return allowedNicknames.contains(credentials.getNickname());
     }
 }
