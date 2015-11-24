@@ -46,23 +46,23 @@ public class GlobalChatForm {
         lClientList.setModel(model);
 
         e.contactList.getContacts().forEach((id, descriptor) -> {
-            model.addElement(descriptor.nickname);
+            model.addElement(descriptor.getNickname());
         });
     }
 
     @Subscribe
     public void handleUserLoginEvent(UserLoginEvent e) {
-        logMessage("User " + e.descriptor.nickname + " (" + e.descriptor.id + ") went online");
+        logMessage("User " + e.descriptor.getNickname() + " (" + e.descriptor.getId() + ") went online");
     }
 
     @Subscribe
     public void handleUserLogoutEvent(UserLogoutEvent e) {
-        logMessage("User " + e.descriptor.nickname + " (" + e.descriptor.id + ") went offline");
+        logMessage("User " + e.descriptor.getNickname() + " (" + e.descriptor.getId() + ") went offline");
     }
 
     @Subscribe
     public void handleUserMessageEvent(UserMessageEvent e) {
-        logMessage(e.message.text, e.message.sender.nickname);
+        logMessage(e.message.text, e.message.sender.getNickname());
     }
 
     public void logMessage(String msg, String sender) {

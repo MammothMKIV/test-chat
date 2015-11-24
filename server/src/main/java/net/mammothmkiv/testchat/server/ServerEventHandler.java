@@ -17,7 +17,7 @@ public class ServerEventHandler {
 
     @Subscribe public void handleUserLoginEvent(UserLoginEvent e) {
         ActiveUserRegistry.getInstance().getActiveUsers().forEach((id, connection) -> {
-            if (!connection.getId().equals(e.descriptor.id)) {
+            if (!connection.getId().equals(e.descriptor.getId())) {
                 try {
                     connection.getClientHandler().send(new UserLoginNotificationPacket(e.descriptor));
                 } catch (IOException ex) {
