@@ -15,18 +15,18 @@ import java.io.IOException;
 public class ClientPacketHandler {
 
     @Subscribe public void handleTestPacket(ClientMessage message) {
-        if (message.packet instanceof TestPacket) {
-            System.out.println("Received TestPacket from client with value: " + ((TestPacket)message.packet).value);
-            System.out.println("Client message: " + ((TestPacket)message.packet).message);
+        if (message.getPacket() instanceof TestPacket) {
+            System.out.println("Received TestPacket from client with value: " + ((TestPacket)message.getPacket()).value);
+            System.out.println("Client message: " + ((TestPacket)message.getPacket()).message);
         }
     }
 
     @Subscribe public void handleMemberListRequestPacket(ClientMessage message) {
-        if (message.packet instanceof MemberListRequestPacket) {
+        if (message.getPacket() instanceof MemberListRequestPacket) {
             try {
-                ActiveUserRegistry.getInstance().getUserConnection(message.descriptor.id).setReady(true);
-                ServerEventBus.getInstance().post(new UserLoginEvent(message.descriptor));
-                message.clientHandler.send(new MemberListResponsePacket(ActiveUserRegistry.getInstance().getActiveUserDescriptors()));
+                ActiveUserRegistry.getInstance().getUserConnection(message.getDescriptor().id).setReady(true);
+                ServerEventBus.getInstance().post(new UserLoginEvent(message.getDescriptor()));
+                message.getClientHandler().send(new MemberListResponsePacket(ActiveUserRegistry.getInstance().getActiveUserDescriptors()));
             } catch (IOException e) {
                 System.out.println("Failed to send client list");
             }
@@ -34,8 +34,8 @@ public class ClientPacketHandler {
     }
 
     @Subscribe public void handleUserMessagePacket(ClientMessage message) {
-        if (message.packet instanceof UserMessagePacket) {
-            ChatMessage msg = new ChatMessage(message.descriptor, ((UserMessagePacket) message.packet).message.text);
+        if (message.getPacket() instanceof UserMessagePacket) {
+            ChatMessage msg = new ChatMessage(message.getDescriptor(), ((UserMessagePacket) message.getPacket()).message.text);
             ServerEventBus.getInstance().post(new UserMessageEvent(msg));
         }
     }
