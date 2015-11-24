@@ -43,14 +43,14 @@ public class ServerClientHandler extends Thread {
                 throw new IncorrectPacketSequenceException("Got wrong packet. Expected LoginRequestPacket.");
             }
 
-            if (!authenticator.authenticate(new AuthenticationCredentials(((LoginRequestPacket)loginRequest).nickname))) {
+            if (!authenticator.authenticate(new AuthenticationCredentials(((LoginRequestPacket)loginRequest).getNickname()))) {
                 os.writeObject(new LoginResponsePacket("Incorrect login"));
                 client.close();
-                throw new UserAuthenticationException("Incorrect user login: " + ((LoginRequestPacket)loginRequest).nickname);
+                throw new UserAuthenticationException("Incorrect user login: " + ((LoginRequestPacket)loginRequest).getNickname());
             }
 
             this.connection.setSignedIn(true);
-            this.connection.setId(((LoginRequestPacket)loginRequest).nickname);
+            this.connection.setId(((LoginRequestPacket)loginRequest).getNickname());
 
             try {
                 ActiveUserRegistry.getInstance().register(this.connection);
@@ -60,7 +60,7 @@ public class ServerClientHandler extends Thread {
                 throw e;
             }
 
-            os.writeObject(new LoginResponsePacket(new UserDescriptor(this.connection.getId(), ((LoginRequestPacket)loginRequest).nickname), LoginResult.LOGIN_RESULT_SUCCESS, "Welcome"));
+            os.writeObject(new LoginResponsePacket(new UserDescriptor(this.connection.getId(), ((LoginRequestPacket)loginRequest).getNickname()), LoginResult.LOGIN_RESULT_SUCCESS, "Welcome"));
 
             client.setSoTimeout(0);
 

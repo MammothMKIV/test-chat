@@ -17,9 +17,9 @@ public class ServerEventHandler {
 
     @Subscribe public void handleUserLoginEvent(UserLoginEvent e) {
         ActiveUserRegistry.getInstance().getActiveUsers().forEach((id, connection) -> {
-            if (!connection.getId().equals(e.descriptor.getId())) {
+            if (!connection.getId().equals(e.getDescriptor().getId())) {
                 try {
-                    connection.getClientHandler().send(new UserLoginNotificationPacket(e.descriptor));
+                    connection.getClientHandler().send(new UserLoginNotificationPacket(e.getDescriptor()));
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -30,7 +30,7 @@ public class ServerEventHandler {
     @Subscribe public void handleUserLogoutEvent(UserLogoutEvent e) {
         ActiveUserRegistry.getInstance().getActiveUsers().forEach((id, connection) -> {
             try {
-                connection.getClientHandler().send(new UserLogoutNotificationPacket(e.descriptor));
+                connection.getClientHandler().send(new UserLogoutNotificationPacket(e.getDescriptor()));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -40,7 +40,7 @@ public class ServerEventHandler {
     @Subscribe public void handleUserMessageEvent(UserMessageEvent e) {
         ActiveUserRegistry.getInstance().getActiveUsers().forEach((id, connection) -> {
             try {
-                connection.getClientHandler().send(new UserMessagePacket(e.message));
+                connection.getClientHandler().send(new UserMessagePacket(e.getMessage()));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

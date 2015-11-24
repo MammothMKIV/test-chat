@@ -52,17 +52,17 @@ public class GlobalChatForm {
 
     @Subscribe
     public void handleUserLoginEvent(UserLoginEvent e) {
-        logMessage("User " + e.descriptor.getNickname() + " (" + e.descriptor.getId() + ") went online");
+        logMessage("User " + e.getDescriptor().getNickname() + " (" + e.getDescriptor().getId() + ") went online");
     }
 
     @Subscribe
     public void handleUserLogoutEvent(UserLogoutEvent e) {
-        logMessage("User " + e.descriptor.getNickname() + " (" + e.descriptor.getId() + ") went offline");
+        logMessage("User " + e.getDescriptor().getNickname() + " (" + e.getDescriptor().getId() + ") went offline");
     }
 
     @Subscribe
     public void handleUserMessageEvent(UserMessageEvent e) {
-        logMessage(e.message.getText(), e.message.getSender().getNickname());
+        logMessage(e.getMessage().getText(), e.getMessage().getSender().getNickname());
     }
 
     public void logMessage(String msg, String sender) {

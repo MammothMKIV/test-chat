@@ -22,12 +22,12 @@ public class ServerPacketHandler {
     }
 
     @Subscribe public void handleLoginResponsePacket(LoginResponsePacket e) {
-        switch (e.result) {
+        switch (e.getResult()) {
             case LOGIN_RESULT_FAIL:
-                chatBus.post(new LoginFailedEvent(e.message));
+                chatBus.post(new LoginFailedEvent(e.getMessage()));
                 break;
             case LOGIN_RESULT_SUCCESS:
-                chatBus.post(new LoginSuccessEvent(e.descriptor));
+                chatBus.post(new LoginSuccessEvent(e.getDescriptor()));
                 break;
             default:
                 System.out.println("Invalid server login status response");
@@ -35,19 +35,19 @@ public class ServerPacketHandler {
     }
 
     @Subscribe public void handleMemberListResponsePacket(MemberListResponsePacket e) {
-        chatBus.post(new MemberListLoadEvent(e.members));
+        chatBus.post(new MemberListLoadEvent(e.getMembers()));
     }
 
     @Subscribe public void handleUserLoginNotificationPacket(UserLoginNotificationPacket e) {
-        chatBus.post(new UserLoginEvent(e.descriptor));
+        chatBus.post(new UserLoginEvent(e.getDescriptor()));
     }
 
     @Subscribe public void handleUserLogoutNotificationPacket(UserLogoutNotificationPacket e) {
-        chatBus.post(new UserLogoutEvent(e.descriptor));
+        chatBus.post(new UserLogoutEvent(e.getDescriptor()));
     }
 
     @Subscribe public void handleUserMessagePacket(UserMessagePacket e) {
-        chatBus.post(new UserMessageEvent(e.message));
+        chatBus.post(new UserMessageEvent(e.getMessage()));
     }
 
 }

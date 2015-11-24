@@ -30,12 +30,12 @@ public class ContactList {
     }
 
     @Subscribe public void handleUserLoginEvent(UserLoginEvent e) {
-        contacts.put(e.descriptor.getId(), e.descriptor);
+        contacts.put(e.getDescriptor().getId(), e.getDescriptor());
         doNotify();
     }
 
     @Subscribe public void handleUserLogoutEvent(UserLogoutEvent e) {
-        contacts.remove(e.descriptor.getId());
+        contacts.remove(e.getDescriptor().getId());
         doNotify();
     }
 

@@ -79,6 +79,6 @@ public class ChatCore {
     }
 
     @Subscribe public void handleUserMessageEvent(UserMessageEvent e) {
-        globalChatLog.pushMessage(e.message);
+        globalChatLog.pushMessage(e.getMessage());
     }
 }
