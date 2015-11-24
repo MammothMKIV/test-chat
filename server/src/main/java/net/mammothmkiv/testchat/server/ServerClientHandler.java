@@ -1,6 +1,9 @@
 package net.mammothmkiv.testchat.server;
 
 import net.mammothmkiv.testchat.common.*;
+import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
+import net.mammothmkiv.testchat.common.packets.LoginRequestPacket;
+import net.mammothmkiv.testchat.common.packets.LoginResponsePacket;
 import net.mammothmkiv.testchat.server.authenticators.IAuthenticator;
 import net.mammothmkiv.testchat.server.exceptions.ConcurrentConnectionException;
 import net.mammothmkiv.testchat.server.exceptions.IncorrectPacketSequenceException;

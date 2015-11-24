@@ -1,4 +1,6 @@
-package net.mammothmkiv.testchat.common;
+package net.mammothmkiv.testchat.common.events;
+
+import net.mammothmkiv.testchat.common.UserDescriptor;
 
 /**
  * Created by n.rogovoy on 11/12/2015.

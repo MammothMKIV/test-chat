@@ -1,7 +1,12 @@
 package net.mammothmkiv.testchat.server;
 
 import com.google.common.eventbus.Subscribe;
-import net.mammothmkiv.testchat.common.*;
+import net.mammothmkiv.testchat.common.events.UserLoginEvent;
+import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
+import net.mammothmkiv.testchat.common.events.UserMessageEvent;
+import net.mammothmkiv.testchat.common.packets.UserLoginNotificationPacket;
+import net.mammothmkiv.testchat.common.packets.UserLogoutNotificationPacket;
+import net.mammothmkiv.testchat.common.packets.UserMessagePacket;
 
 import java.io.IOException;
 

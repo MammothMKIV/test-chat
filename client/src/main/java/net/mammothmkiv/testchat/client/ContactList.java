@@ -5,8 +5,8 @@ import com.google.common.eventbus.Subscribe;
 import net.mammothmkiv.testchat.client.events.ContactListUpdateEvent;
 import net.mammothmkiv.testchat.client.events.MemberListLoadEvent;
 import net.mammothmkiv.testchat.common.UserDescriptor;
-import net.mammothmkiv.testchat.common.UserLoginEvent;
-import net.mammothmkiv.testchat.common.UserLogoutEvent;
+import net.mammothmkiv.testchat.common.events.UserLoginEvent;
+import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
 
 import java.util.Hashtable;
 

@@ -5,6 +5,10 @@ import com.google.common.eventbus.Subscribe;
 import net.mammothmkiv.testchat.client.events.LoginSuccessEvent;
 import net.mammothmkiv.testchat.client.handlers.ServerPacketHandler;
 import net.mammothmkiv.testchat.common.*;
+import net.mammothmkiv.testchat.common.events.UserMessageEvent;
+import net.mammothmkiv.testchat.common.packets.LoginRequestPacket;
+import net.mammothmkiv.testchat.common.packets.MemberListRequestPacket;
+import net.mammothmkiv.testchat.common.packets.UserMessagePacket;
 
 import java.io.IOException;
 

@@ -4,9 +4,9 @@ import com.google.common.eventbus.Subscribe;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import net.mammothmkiv.testchat.client.events.ContactListUpdateEvent;
-import net.mammothmkiv.testchat.common.UserLoginEvent;
-import net.mammothmkiv.testchat.common.UserLogoutEvent;
-import net.mammothmkiv.testchat.common.UserMessageEvent;
+import net.mammothmkiv.testchat.common.events.UserLoginEvent;
+import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
+import net.mammothmkiv.testchat.common.events.UserMessageEvent;
 
 import javax.swing.*;
 import java.awt.*;

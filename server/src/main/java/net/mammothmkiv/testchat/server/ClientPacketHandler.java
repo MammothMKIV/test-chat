@@ -3,6 +3,12 @@ package net.mammothmkiv.testchat.server;
 
 import com.google.common.eventbus.Subscribe;
 import net.mammothmkiv.testchat.common.*;
+import net.mammothmkiv.testchat.common.events.UserLoginEvent;
+import net.mammothmkiv.testchat.common.events.UserMessageEvent;
+import net.mammothmkiv.testchat.common.packets.MemberListRequestPacket;
+import net.mammothmkiv.testchat.common.packets.MemberListResponsePacket;
+import net.mammothmkiv.testchat.common.packets.TestPacket;
+import net.mammothmkiv.testchat.common.packets.UserMessagePacket;
 
 import java.io.IOException;
 

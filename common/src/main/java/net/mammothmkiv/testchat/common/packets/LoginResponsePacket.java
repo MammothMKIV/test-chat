@@ -1,4 +1,7 @@
-package net.mammothmkiv.testchat.common;
+package net.mammothmkiv.testchat.common.packets;
+
+import net.mammothmkiv.testchat.common.LoginResult;
+import net.mammothmkiv.testchat.common.UserDescriptor;
 
 import java.io.Serializable;
 

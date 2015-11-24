@@ -1,4 +1,4 @@
-package net.mammothmkiv.testchat.common;
+package net.mammothmkiv.testchat.common.packets;
 
 import java.io.Serializable;
 

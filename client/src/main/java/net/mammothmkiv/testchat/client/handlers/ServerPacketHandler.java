@@ -5,7 +5,10 @@ import com.google.common.eventbus.Subscribe;
 import net.mammothmkiv.testchat.client.events.LoginFailedEvent;
 import net.mammothmkiv.testchat.client.events.LoginSuccessEvent;
 import net.mammothmkiv.testchat.client.events.MemberListLoadEvent;
-import net.mammothmkiv.testchat.common.*;
+import net.mammothmkiv.testchat.common.events.UserLoginEvent;
+import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
+import net.mammothmkiv.testchat.common.events.UserMessageEvent;
+import net.mammothmkiv.testchat.common.packets.*;
 
 /**
  * Created by n.rogovoy on 11/11/2015.
