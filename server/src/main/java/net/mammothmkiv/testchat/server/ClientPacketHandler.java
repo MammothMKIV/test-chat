@@ -35,7 +35,7 @@ public class ClientPacketHandler {
 
     @Subscribe public void handleUserMessagePacket(ClientMessage message) {
         if (message.getPacket() instanceof UserMessagePacket) {
-            ChatMessage msg = new ChatMessage(message.getDescriptor(), ((UserMessagePacket) message.getPacket()).message.text);
+            ChatMessage msg = new ChatMessage(message.getDescriptor(), ((UserMessagePacket) message.getPacket()).message.getText());
             ServerEventBus.getInstance().post(new UserMessageEvent(msg));
         }
     }

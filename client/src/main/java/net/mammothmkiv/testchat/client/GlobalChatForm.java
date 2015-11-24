@@ -62,7 +62,7 @@ public class GlobalChatForm {
 
     @Subscribe
     public void handleUserMessageEvent(UserMessageEvent e) {
-        logMessage(e.message.text, e.message.sender.getNickname());
+        logMessage(e.message.getText(), e.message.getSender().getNickname());
     }
 
     public void logMessage(String msg, String sender) {
