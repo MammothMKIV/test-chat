@@ -45,7 +45,7 @@ public class GlobalChatForm {
         DefaultListModel model = new DefaultListModel();
         lClientList.setModel(model);
 
-        e.contactList.getContacts().forEach((id, descriptor) -> {
+        e.getContactList().getContacts().forEach((id, descriptor) -> {
             model.addElement(descriptor.getNickname());
         });
     }

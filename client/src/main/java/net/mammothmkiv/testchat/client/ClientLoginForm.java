@@ -52,7 +52,7 @@ public class ClientLoginForm {
 
     @Subscribe
     public void onLoginFailed(LoginFailedEvent e) {
-        lbError.setText(e.message);
+        lbError.setText(e.getMessage());
         lbError.setVisible(true);
     }
 

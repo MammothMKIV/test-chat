@@ -40,7 +40,7 @@ public class ContactList {
     }
 
     @Subscribe public void handleMemberListLoadEvent(MemberListLoadEvent e) {
-        contacts = e.members;
+        contacts = e.getMembers();
         doNotify();
     }
 }

@@ -25,9 +25,9 @@ public class ServerConnectionHandler {
 
     public void connect() throws IOException {
         if (!isConnected()) {
-            connectionInfo.connection = new Socket("127.0.0.1", 25565);
-            connectionInfo.isConnected = true;
-            outputStream = new ObjectOutputStream(connectionInfo.connection.getOutputStream());
+            connectionInfo.setConnection(new Socket("127.0.0.1", 25565));
+            connectionInfo.setConnected(true);
+            outputStream = new ObjectOutputStream(connectionInfo.getConnection().getOutputStream());
             dataReceiver = new ServerDataReceiver(connectionInfo, packetBus);
             dataReceiver.setDaemon(true);
             dataReceiver.start();
@@ -39,6 +39,6 @@ public class ServerConnectionHandler {
     }
 
     private Boolean isConnected() {
-        return connectionInfo.isConnected;
+        return connectionInfo.getConnected();
     }
 }

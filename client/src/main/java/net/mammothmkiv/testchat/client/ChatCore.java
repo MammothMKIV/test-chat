@@ -67,7 +67,7 @@ public class ChatCore {
     }
 
     @Subscribe public void onLoginSuccess(LoginSuccessEvent e) {
-        this.currentUser = e.descriptor;
+        this.currentUser = e.getDescriptor();
     }
 
     public void requestMemberList() {

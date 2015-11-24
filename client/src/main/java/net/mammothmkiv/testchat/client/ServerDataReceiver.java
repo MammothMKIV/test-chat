@@ -18,7 +18,7 @@ public class ServerDataReceiver extends Thread {
 
     public void run() {
         try {
-            ObjectInputStream inputStream = new ObjectInputStream(connectionInfo.connection.getInputStream());
+            ObjectInputStream inputStream = new ObjectInputStream(connectionInfo.getConnection().getInputStream());
 
             while (true) {
                 Object obj = inputStream.readObject();
@@ -26,8 +26,8 @@ public class ServerDataReceiver extends Thread {
                 packetBus.post(obj);
             }
         } catch (Exception e) {
-            connectionInfo.isConnected = false;
-            connectionInfo.isSignedIn = false;
+            connectionInfo.setConnected(false);
+            connectionInfo.setSignedIn(false);
         }
     }
 }
