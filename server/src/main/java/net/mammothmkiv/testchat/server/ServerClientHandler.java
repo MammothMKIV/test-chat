@@ -29,7 +29,7 @@ public class ServerClientHandler extends Thread {
     public void run()
     {
         try {
-            Socket client = connection.socket;
+            Socket client = connection.getSocket();
 
             client.setSoTimeout(2000);
 
@@ -49,8 +49,8 @@ public class ServerClientHandler extends Thread {
                 throw new UserAuthenticationException("Incorrect user login: " + ((LoginRequestPacket)loginRequest).nickname);
             }
 
-            this.connection.signedIn = true;
-            this.connection.id = ((LoginRequestPacket)loginRequest).nickname;
+            this.connection.setSignedIn(true);
+            this.connection.setId(((LoginRequestPacket)loginRequest).nickname);
 
             try {
                 ActiveUserRegistry.getInstance().register(this.connection);
@@ -60,7 +60,7 @@ public class ServerClientHandler extends Thread {
                 throw e;
             }
 
-            os.writeObject(new LoginResponsePacket(new UserDescriptor(this.connection.id, ((LoginRequestPacket)loginRequest).nickname), LoginResult.LOGIN_RESULT_SUCCESS, "Welcome"));
+            os.writeObject(new LoginResponsePacket(new UserDescriptor(this.connection.getId(), ((LoginRequestPacket)loginRequest).nickname), LoginResult.LOGIN_RESULT_SUCCESS, "Welcome"));
 
             client.setSoTimeout(0);
 
@@ -68,18 +68,18 @@ public class ServerClientHandler extends Thread {
                 while (true) {
                     Object obj = is.readObject();
 
-                    ServerPacketBus.getInstance().post(new ClientMessage(obj, this, new UserDescriptor(connection.id, connection.id)));
+                    ServerPacketBus.getInstance().post(new ClientMessage(obj, this, new UserDescriptor(connection.getId(), connection.getId())));
                 }
             } catch (Exception e) {
-                ActiveUserRegistry.getInstance().unregister(this.connection.id);
+                ActiveUserRegistry.getInstance().unregister(this.connection.getId());
 
             }
         } catch (Exception e) {
             System.out.println(e.toString());
         }
 
-        if (connection.isReady) {
-            ServerEventBus.getInstance().post(new UserLogoutEvent(new UserDescriptor(connection.id, connection.id)));
+        if (connection.getReady()) {
+            ServerEventBus.getInstance().post(new UserLogoutEvent(new UserDescriptor(connection.getId(), connection.getId())));
         }
 
         System.out.println("Connection closed");

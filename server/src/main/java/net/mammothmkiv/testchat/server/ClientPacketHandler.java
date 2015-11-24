@@ -24,7 +24,7 @@ public class ClientPacketHandler {
     @Subscribe public void handleMemberListRequestPacket(ClientMessage message) {
         if (message.packet instanceof MemberListRequestPacket) {
             try {
-                ActiveUserRegistry.getInstance().getUserConnection(message.descriptor.id).isReady = true;
+                ActiveUserRegistry.getInstance().getUserConnection(message.descriptor.id).setReady(true);
                 ServerEventBus.getInstance().post(new UserLoginEvent(message.descriptor));
                 message.clientHandler.send(new MemberListResponsePacket(ActiveUserRegistry.getInstance().getActiveUserDescriptors()));
             } catch (IOException e) {

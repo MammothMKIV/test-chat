@@ -30,7 +30,7 @@ public class ServerConnectionListener extends Thread {
 
                 ServerClientHandler clientHandler = new ServerClientHandler(userConnection, authenticator);
 
-                userConnection.clientHandler = clientHandler;
+                userConnection.setClientHandler(clientHandler);
 
                 clientHandler.start();
 

@@ -24,11 +24,11 @@ public class ActiveUserRegistry {
 
     public void register(UserConnection connection) throws ConcurrentConnectionException
     {
-        if (connections.containsKey(connection.id)) {
+        if (connections.containsKey(connection.getId())) {
             throw new ConcurrentConnectionException("User already connected");
         }
 
-        connections.put(connection.id, connection);
+        connections.put(connection.getId(), connection);
     }
 
     public void unregister(String id)
@@ -40,7 +40,7 @@ public class ActiveUserRegistry {
         Hashtable<String, UserDescriptor> users = new Hashtable<>();
 
         connections.forEach((id, connection) -> {
-            if (connection.signedIn) {
+            if (connection.getSignedIn()) {
                 users.put(id, new UserDescriptor(id, id));
             }
         });
@@ -51,7 +51,7 @@ public class ActiveUserRegistry {
     public Map<String, UserConnection> getActiveUsers() {
         return connections.entrySet()
                 .stream()
-                .filter((item) -> item.getValue().isReady )
+                .filter((item) -> item.getValue().getReady() )
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
