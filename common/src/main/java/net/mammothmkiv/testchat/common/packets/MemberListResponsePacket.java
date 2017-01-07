@@ -5,9 +5,6 @@ import net.mammothmkiv.testchat.common.UserDescriptor;
 import java.io.Serializable;
 import java.util.Hashtable;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class MemberListResponsePacket implements Serializable {
     private Hashtable<String, UserDescriptor> members;
 

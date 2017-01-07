@@ -4,9 +4,6 @@ import net.mammothmkiv.testchat.common.AuthenticationCredentials;
 
 import java.util.ArrayList;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class MemoryAuthenticator implements IAuthenticator {
     public void authenticate(AuthenticationCredentials credentials) throws AuthenticationException {
         ArrayList<String> allowedNicknames = new ArrayList() {{

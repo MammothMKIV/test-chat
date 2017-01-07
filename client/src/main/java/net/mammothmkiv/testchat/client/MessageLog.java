@@ -4,9 +4,6 @@ import net.mammothmkiv.testchat.common.ChatMessage;
 
 import java.util.ArrayList;
 
-/**
- * Created by n.rogovoy on 11/13/2015.
- */
 public class MessageLog {
     private ArrayList<ChatMessage> log;
 

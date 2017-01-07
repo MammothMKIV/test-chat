@@ -7,9 +7,6 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class ActiveUserRegistry {
     private static Hashtable<String, UserConnection> connections = new Hashtable<>();
     private static ActiveUserRegistry instance = new ActiveUserRegistry();

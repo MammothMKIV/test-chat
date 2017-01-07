@@ -4,9 +4,6 @@ import net.mammothmkiv.testchat.common.UserDescriptor;
 
 import java.io.Serializable;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class UserLogoutNotificationPacket implements Serializable {
     private UserDescriptor descriptor;
 

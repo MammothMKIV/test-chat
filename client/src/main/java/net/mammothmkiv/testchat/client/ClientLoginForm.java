@@ -13,9 +13,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-/**
- * Created by n.rogovoy on 11/10/2015.
- */
 public class ClientLoginForm {
     private JPanel pnMain;
     private JTextField fNickname;

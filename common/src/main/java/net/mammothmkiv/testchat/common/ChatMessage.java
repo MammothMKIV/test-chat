@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.common;
 
 import java.io.Serializable;
 
-/**
- * Created by n.rogovoy on 11/13/2015.
- */
 public class ChatMessage implements Serializable {
     private UserDescriptor sender;
     private String text;

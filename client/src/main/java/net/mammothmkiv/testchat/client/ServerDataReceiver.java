@@ -4,9 +4,6 @@ import com.google.common.eventbus.EventBus;
 
 import java.io.ObjectInputStream;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class ServerDataReceiver extends Thread {
     private ConnectionInfo connectionInfo;
     private EventBus packetBus;

@@ -4,9 +4,6 @@ import net.mammothmkiv.testchat.common.ChatMessage;
 
 import java.io.Serializable;
 
-/**
- * Created by n.rogovoy on 11/13/2015.
- */
 public class UserMessagePacket implements Serializable {
     private ChatMessage message;
 

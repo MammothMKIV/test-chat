@@ -12,9 +12,6 @@ import net.mammothmkiv.testchat.common.packets.UserMessagePacket;
 
 import java.io.IOException;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class ChatCore {
     private static ChatCore instance = new ChatCore();
 

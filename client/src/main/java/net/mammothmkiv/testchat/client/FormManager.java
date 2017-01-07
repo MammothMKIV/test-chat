@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.client;
 
 import javax.swing.*;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class FormManager {
     private static FormManager instance = new FormManager();
     private ClientLoginForm loginForm;

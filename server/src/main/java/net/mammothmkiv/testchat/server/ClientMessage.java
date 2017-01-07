@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.server;
 
 import net.mammothmkiv.testchat.common.UserDescriptor;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class ClientMessage {
     private Object packet;
     private ServerClientHandler clientHandler;

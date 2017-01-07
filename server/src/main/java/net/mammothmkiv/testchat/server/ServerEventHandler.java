@@ -10,9 +10,6 @@ import net.mammothmkiv.testchat.common.packets.UserMessagePacket;
 
 import java.io.IOException;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class ServerEventHandler {
 
     @Subscribe public void handleUserLoginEvent(UserLoginEvent e) {

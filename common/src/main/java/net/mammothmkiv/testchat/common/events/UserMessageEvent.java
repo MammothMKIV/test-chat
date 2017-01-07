@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.common.events;
 
 import net.mammothmkiv.testchat.common.ChatMessage;
 
-/**
- * Created by n.rogovoy on 11/13/2015.
- */
 public class UserMessageEvent {
     private ChatMessage message;
 

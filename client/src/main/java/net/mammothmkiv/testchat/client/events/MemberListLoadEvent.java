@@ -4,9 +4,6 @@ import net.mammothmkiv.testchat.common.UserDescriptor;
 
 import java.util.Hashtable;
 
-/**
- * Created by n.rogovoy on 11/12/2015.
- */
 public class MemberListLoadEvent {
     private Hashtable<String, UserDescriptor> members;
 

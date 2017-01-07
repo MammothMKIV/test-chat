@@ -5,9 +5,6 @@ import net.mammothmkiv.testchat.common.UserDescriptor;
 
 import java.io.Serializable;
 
-/**
- * Created by n.rogovoy on 11/10/2015.
- */
 public class LoginResponsePacket implements Serializable {
     private LoginResult result;
     private String message = "";

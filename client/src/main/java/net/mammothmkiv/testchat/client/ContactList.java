@@ -10,9 +10,6 @@ import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
 
 import java.util.Hashtable;
 
-/**
- * Created by n.rogovoy on 11/13/2015.
- */
 public class ContactList {
     private Hashtable<String, UserDescriptor> contacts = new Hashtable<>();
     private EventBus chatBus;

@@ -14,9 +14,6 @@ import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class GlobalChatForm {
     private JPanel pnMain;
     private JTextArea fChatLog;

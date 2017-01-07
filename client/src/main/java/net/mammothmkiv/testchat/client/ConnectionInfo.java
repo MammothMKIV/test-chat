@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.client;
 
 import java.net.Socket;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class ConnectionInfo {
     private Socket connection = null;
     private Boolean isSignedIn = false;

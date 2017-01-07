@@ -6,9 +6,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class ServerConnectionHandler {
     private ServerDataReceiver dataReceiver;
     private ConnectionInfo connectionInfo = new ConnectionInfo();

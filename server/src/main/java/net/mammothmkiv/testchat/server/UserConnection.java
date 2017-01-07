@@ -2,9 +2,6 @@ package net.mammothmkiv.testchat.server;
 
 import java.net.Socket;
 
-/**
- * Created by n.rogovoy on 11/11/2015.
- */
 public class UserConnection {
     private Socket socket = null;
     private String id = "";
