@@ -8,13 +8,15 @@ import java.util.ArrayList;
  * Created by n.rogovoy on 11/11/2015.
  */
 public class MemoryAuthenticator implements IAuthenticator {
-    public Boolean authenticate(AuthenticationCredentials credentials) {
+    public void authenticate(AuthenticationCredentials credentials) throws AuthenticationException {
         ArrayList<String> allowedNicknames = new ArrayList() {{
             add("MammothMKIV");
             add("tester");
             add("admin");
         }};
 
-        return allowedNicknames.contains(credentials.getNickname());
+        if (!allowedNicknames.contains(credentials.getNickname())) {
+            throw new AuthenticationException("Invalid credentials");
+        }
     }
 }

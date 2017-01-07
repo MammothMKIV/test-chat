@@ -4,6 +4,7 @@ import net.mammothmkiv.testchat.common.*;
 import net.mammothmkiv.testchat.common.events.UserLogoutEvent;
 import net.mammothmkiv.testchat.common.packets.LoginRequestPacket;
 import net.mammothmkiv.testchat.common.packets.LoginResponsePacket;
+import net.mammothmkiv.testchat.server.authenticators.AuthenticationException;
 import net.mammothmkiv.testchat.server.authenticators.IAuthenticator;
 import net.mammothmkiv.testchat.server.exceptions.ConcurrentConnectionException;
 import net.mammothmkiv.testchat.server.exceptions.IncorrectPacketSequenceException;
@@ -43,7 +44,9 @@ public class ServerClientHandler extends Thread {
                 throw new IncorrectPacketSequenceException("Got wrong packet. Expected LoginRequestPacket.");
             }
 
-            if (!authenticator.authenticate(new AuthenticationCredentials(((LoginRequestPacket)loginRequest).getNickname()))) {
+            try {
+                authenticator.authenticate(new AuthenticationCredentials(((LoginRequestPacket)loginRequest).getNickname()));
+            } catch (AuthenticationException e) {
                 os.writeObject(new LoginResponsePacket("Incorrect login"));
                 client.close();
                 throw new UserAuthenticationException("Incorrect user login: " + ((LoginRequestPacket)loginRequest).getNickname());
